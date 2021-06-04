@@ -1,0 +1,69 @@
+﻿<Page x:Class="Vehicles.Views.VehiclesView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Vehicles.Views"
+      mc:Ignorable="d" 
+      Height="450" Width="800">
+
+    <Page.Resources>
+    </Page.Resources>
+
+
+    <DockPanel>
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar>
+                <Button Command="{Binding Path=NewViewCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}">
+                    <StackPanel>
+                        <Image Style="{StaticResource IconImage}" Source="/Resources/add_view.png" Height="16"/>
+                        <TextBlock>New view</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Command="{Binding Path=AddCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}">
+                    <StackPanel>
+                        <Image Style="{StaticResource IconImage}" Source="/Resources/add.png" Height="16"/>
+                        <TextBlock>Add</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Command="{Binding Path=EditCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}">
+                    <StackPanel>
+                        <Image Style="{StaticResource IconImage}" Source="/Resources/edit.png" Height="16"/>
+                        <TextBlock>Edit</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Command="{Binding Path=DeleteCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}">
+                    <StackPanel>
+                        <Image Style="{StaticResource IconImage}" Source="/Resources/delete.png" Height="16"/>
+                        <TextBlock>Delete</TextBlock>
+                    </StackPanel>
+                </Button>
+                <ComboBox Height="22" SelectedIndex="{Binding FilterIndex, UpdateSourceTrigger=PropertyChanged}" Margin="10, 0, 0, 0" VerticalAlignment="Center" Width="120">
+                    <ComboBoxItem Content="All"/>
+                    <ComboBoxItem Content="Above 100km/h"/>
+                    <ComboBoxItem Content="Below 100km/h"/>
+                </ComboBox>
+            </ToolBar>
+        </ToolBarTray>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock Name="NumberOfItems" Text="{Binding Path=Vehicles.Count, StringFormat='Number of items: {0}'}" />
+            </StatusBarItem>
+        </StatusBar>
+        <ListView x:Name="VehiclesListView" ItemsSource="{Binding Vehicles}" SelectedItem="{Binding SelectedVehicle, Mode=TwoWay}" Margin="0,0,0,0.4" Grid.Row="1" Grid.ColumnSpan="2" SelectionMode="Single">
+            <ListView.Resources>
+                <Style TargetType="{x:Type GridViewColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Left" />
+                </Style>
+            </ListView.Resources>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Model" DisplayMemberBinding="{Binding Model}" Width="200"/>
+                    <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}" Width="100"/>
+                    <GridViewColumn Header="Max velocity" DisplayMemberBinding="{Binding MaxVelocity}" Width="100"/>
+                    <GridViewColumn Header="Production date" DisplayMemberBinding="{Binding ProductionDate, StringFormat='dd-MM-yyyy'}" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Page>
