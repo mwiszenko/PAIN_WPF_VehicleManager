@@ -21,8 +21,8 @@
         <TextBox Style="{StaticResource ReadOnly}" HorizontalAlignment="Left" Height="25" Margin="120,60,0,0" TextWrapping="Wrap" Text="{Binding Type}" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="150"/>
         <TextBox Style="{StaticResource ValidatingControl}" HorizontalAlignment="Left" Height="25" Margin="120,110,0,0" TextWrapping="Wrap" Text="{Binding MaxVelocity, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="150"/>
         <DatePicker HorizontalAlignment="Left" Height="25" Margin="120,160,0,0" SelectedDate="{Binding ProductionDate}" VerticalAlignment="Top" Width="150"/>
-        <Button Content="OK" Command="{Binding OkCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}" HorizontalAlignment="Left" Margin="115,225,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Cancel" Command="{Binding CancelCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}" HorizontalAlignment="Left" Margin="235,225,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="OK" Command="{Binding OkCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}" HorizontalAlignment="Left" Margin="300,225,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Cancel" Command="{Binding CancelCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}" HorizontalAlignment="Left" Margin="400,225,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Height="175" Width="175" HorizontalAlignment="Left" Margin="300,10,0,0" Name="buttonPlay" VerticalAlignment="Top" Command="{Binding ChangeTypeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}">
             <Image Margin="10" Style="{StaticResource VehicleTypeControl}" Name="ButtonImage" />
         </Button>
