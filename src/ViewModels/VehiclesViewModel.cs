@@ -108,7 +108,6 @@ namespace Vehicles.ViewModels
             {
                 VehicleViewModel vehicleViewModel = new VehicleViewModel(VehiclesModel, vehicle);
                 ((App)Application.Current).WindowService.ShowDialog(vehicleViewModel);
-                UpdateFilter();
             }
         }
         public void DeleteVehicle(Vehicle vehicle)
