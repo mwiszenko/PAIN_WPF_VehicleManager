@@ -53,6 +53,7 @@
                 <Setter Property="Background" Value="LightGray" />
                 <Setter Property="IsReadOnly" Value="True" />
             </Style>
+            <!-- Disabled image -->
             <Style x:Key="IconImage" TargetType="Image">
                 <Style.Triggers>
                     <Trigger Property="IsEnabled" Value="False">
